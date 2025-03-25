@@ -1,0 +1,122 @@
+[
+    {
+      "name": "Dr. Ahmad Santoso, Sp.PD",
+      "specialization": "Penyakit Dalam",
+      "schedule": {
+        "senin": ["09:00", "11:00", "13:00", "15:00"],
+        "rabu": ["08:00", "10:00", "14:00"],
+        "jumat": ["09:00", "12:00"]
+      },
+      "fee": 250000,
+      "photoUrl": "https://www.prostatehealthdirectory.com/wp-content/uploads/2017/06/dokter-saraf.jpg",
+      "bio": "Spesialis Penyakit Dalam lulusan Universitas Indonesia, berpengalaman 10 tahun"
+    },
+    {
+      "name": "Dr. Budi Wijaya, Sp.OG",
+      "specialization": "Kandungan",
+      "schedule": {
+        "selasa": ["08:00", "10:00", "13:00"],
+        "kamis": ["09:00", "11:00", "14:00"],
+        "sabtu": ["09:00", "12:00"]
+      },
+      "fee": 350000,
+      "photoUrl": "https://1.bp.blogspot.com/-nMTFOGMUk7E/VoyDfv-yBiI/AAAAAAAAAho/bHas1aPCAi8/s1600/155332453.jpg",
+      "bio": "Spesialis Kebidanan dan Kandungan, ahli dalam USG kandungan"
+    },
+    {
+      "name": "Dr. Citra Dewi, Sp.A",
+      "specialization": "Anak",
+      "schedule": {
+        "senin": ["08:00", "10:00"],
+        "rabu": ["09:00", "11:00"],
+        "jumat": ["13:00", "15:00"]
+      },
+      "fee": 200000,
+      "photoUrl": "https://www.didikpurwanto.com/wp-content/uploads/2021/11/peran-dokter-di-tengah-pandemi.jpg",
+      "bio": "Dokter spesialis anak ramah, berpengalaman menangani alergi anak"
+    },
+    {
+      "name": "Dr. Dito Pratama, Sp.KK",
+      "specialization": "Kulit & Kelamin",
+      "schedule": {
+        "selasa": ["13:00", "15:00", "17:00"],
+        "kamis": ["10:00", "12:00", "14:00"],
+        "sabtu": ["09:00", "11:00"]
+      },
+      "fee": 300000,
+      "photoUrl": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2022/02/25040148/Rekomendasi-Dokter-Umum-di-Palembang.jpg",
+      "bio": "Ahli dermatologi dengan fokus pada penanganan jerawat dan eksim"
+    },
+    {
+      "name": "Dr. Eva Nurlela, Sp.JP",
+      "specialization": "Jantung",
+      "schedule": {
+        "senin": ["10:00", "12:00"],
+        "rabu": ["08:00", "13:00"],
+        "jumat": ["09:00", "11:00"]
+      },
+      "fee": 400000,
+      "photoUrl": "https://img.freepik.com/premium-photo/happy-smiling-doctor-nurse-with-stethoscope-cute-young_950002-190050.jpg",
+      "bio": "Kardiologis berpengalaman di RS Jantung Harapan Kita"
+    },
+    {
+      "name": "Dr. Fajar Setiawan, Sp.OT",
+      "specialization": "Orthopedi",
+      "schedule": {
+        "selasa": ["09:00", "14:00"],
+        "kamis": ["10:00", "15:00"],
+        "sabtu": ["08:00", "11:00"]
+      },
+      "fee": 350000,
+      "photoUrl": "https://t3.ftcdn.net/jpg/06/43/86/72/360_F_643867278_IXlE24YyOeFm6vYgF5P1GcPC2799nsg8.jpg",
+      "bio": "Ahli bedah tulang dan sendi, spesialisasi cedera olahraga"
+    },
+    {
+      "name": "Dr. Gita Maharani, Sp.KJ",
+      "specialization": "Kesehatan Jiwa",
+      "schedule": {
+        "senin": ["13:00", "15:00", "17:00"],
+        "rabu": ["09:00", "11:00"],
+        "jumat": ["10:00", "12:00"]
+      },
+      "fee": 300000,
+      "photoUrl": "https://img.freepik.com/vrije-photo/praktijk-dokter-vrouw-met-tablet_23-2147648680.jpg?size=626&ext=jpg",
+      "bio": "Psikiater dengan pendekatan holistik untuk kesehatan mental"
+    },
+    {
+      "name": "Dr. Hendra Gunawan, Sp.S",
+      "specialization": "Saraf",
+      "schedule": {
+        "selasa": ["08:00", "12:00"],
+        "kamis": ["09:00", "14:00"],
+        "sabtu": ["10:00", "13:00"]
+      },
+      "fee": 380000,
+      "photoUrl": "https://cdn.prod.website-files.com/5e066fbd0d37a10ebf1f4139/6690e69198aa5a21a2819655_parasite-cleanse-protocol-comprehensive-lab-testing-therapeutic-diet-and-supplements.webp",
+      "bio": "Neurologis ahli stroke dan gangguan sistem saraf"
+    },
+    {
+      "name": "Dr. Intan Permata, Sp.M",
+      "specialization": "Mata",
+      "schedule": {
+        "senin": ["10:00", "13:00"],
+        "rabu": ["09:00", "14:00"],
+        "jumat": ["08:00", "11:00"]
+      },
+      "fee": 320000,
+      "photoUrl": "https://img.freepik.com/premium-photo/closeup-portrait-her-she-nice-attractive-lovely-content-wavyhaired-girl-doc-holding-hands-medical-insurance-assistance-terms-diagnostic-isolated-grey-pastel-color-background_274222-24365.jpg",
+      "bio": "Spesialis mata dengan teknologi LASIK terbaru"
+    },
+    {
+      "name": "Dr. Joko Susilo, Sp.THT-KL",
+      "specialization": "THT",
+      "schedule": {
+        "selasa": ["09:00", "12:00"],
+        "kamis": ["08:00", "13:00"],
+        "sabtu": ["10:00", "15:00"]
+      },
+      "fee": 280000,
+      "photoUrl": "https://th.bing.com/th/id/OIP.Se4GxqeKTvaD9TAn1tTiMAHaE8?w=1000&h=667&rs=1&pid=ImgDetMain",
+      "bio": "Ahli telinga, hidung, dan tenggorokan untuk semua usia"
+    }
+  ]
