@@ -11,7 +11,14 @@ router.post('/login', UserController.routeLogin)
 router.use(authMiddleware)
 
 router.get('/doctors', Controller.routeGetAll)
-router.get('/doctors/:id', Controller.routeGetId)
+router.get('/appointments', Controller.routeGetAppointment)
+router.get('/doctors/firebase', Controller.routeGetFromFirebase)
+router.get('/ai/reccomendations', Controller.routeGetHealthCare)
+router.get('/doctors/:doctorId', Controller.routeGetId)
+router.post('/appointments/:doctorId', Controller.routeAddAppointment)
+router.put('/appointments/:appointmentId', Controller.routeUpdateAppoint)
+router.delete('/appointments/:appointmentId', Controller.routeDeleteAppoint)
+router.patch('/appointments/:appointmentId', Controller.routeChangeStatus)
 
 router.use(errorMiddleware)
 

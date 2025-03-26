@@ -32,16 +32,24 @@ module.exports = (sequelize, DataTypes) => {
     },
     date: DataTypes.DATE,
     time: DataTypes.STRING,
-    status: DataTypes.ENUM(
-      'pending_payment',
-      'confirmed',
-      'completed',
-      'cancelled'
-      ),
+    status: {
+      type: DataTypes.ENUM([
+        'pending_payment',
+        'confirmed',
+        'completed',
+        'cancelled'
+      ]),
+      defaultValue: 'pending_payment'
+    },
     symptoms: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Appointment',
+    hook: {
+      beforeCreate(instance){
+        instance.status = 'pending_payment'
+      }
+    }
   });
   return Appointment;
 };

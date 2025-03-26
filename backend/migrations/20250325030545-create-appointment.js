@@ -30,12 +30,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       status: {
-        type: Sequelize.ENUM(
+        type: Sequelize.ENUM([
           'pending_payment',
           'confirmed',
           'completed',
           'cancelled'
-        )
+        ]),
+        defaultValue: 'pending_payment'
       },
       symptoms: {
         type: Sequelize.TEXT
