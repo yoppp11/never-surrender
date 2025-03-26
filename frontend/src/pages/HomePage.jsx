@@ -7,13 +7,14 @@ import Navbar from '../components/Navbar';
 import http from '../helpers/http';
 
 export default function HomePage() {
-  const navigate = useNavigate();
-  const [doctors, setDoctors] = useState([]);
-  const [filteredDoctors, setFilteredDoctors] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [specializationFilter, setSpecializationFilter] = useState('all');
-  const [sortOption, setSortOption] = useState('default');
-  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate()
+  const [doctors, setDoctors] = useState([])
+  const [remind, setRemind] = useState([])
+  const [filteredDoctors, setFilteredDoctors] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [specializationFilter, setSpecializationFilter] = useState('all')
+  const [sortOption, setSortOption] = useState('default')
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     
@@ -23,8 +24,26 @@ export default function HomePage() {
       return;
     }
 
+
+    async function fetchHealthTips(){
+        try {
+            const response = await http({
+                method: 'GET',
+                url: '/ai/reccomendations',
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('access_token')}`
+                }
+            })
+            // const data = await response.json()
+            setRemind(response.data)
+            console.log(response)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     
-    const fetchDoctors = async () => {
+    async function fetchDoctors(){
       try {
         
         const response = await http({
@@ -34,22 +53,23 @@ export default function HomePage() {
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log(response);
-        setDoctors(response.data);
-        setFilteredDoctors(response.data);
+        console.log(response)
+        setDoctors(response.data)
+        setFilteredDoctors(response.data)
       } catch (error) {
-        console.error('Error fetching doctors:', error);
+        console.error('Error fetching doctors:', error)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     };
 
-    fetchDoctors();
-  }, [navigate]);
+    fetchDoctors()
+    fetchHealthTips()
+  }, [navigate])
 
   useEffect(() => {
     
-    let result = [...doctors];
+    let result = [...doctors]
     
     
     if (specializationFilter !== 'all') {
@@ -85,7 +105,7 @@ export default function HomePage() {
       <Navbar />
       
       <div className="home-content">
-        <HealthReminder />
+        <HealthReminder data={remind}/>
         
         <div className="doctors-header">
           <h2>Temukan Dokter Terbaik</h2>

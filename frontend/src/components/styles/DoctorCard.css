@@ -46,6 +46,13 @@
     color: #444;
   }
   
+  .doctor-fee {
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
   .doctor-button {
     width: 100%;
     padding: 0.75rem;

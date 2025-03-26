@@ -20,8 +20,11 @@ class Controller {
 
     static async routeGetId(req, res, next){
         try {
-            const {id} = req.params
-            const response = await Doctor.findByPk(+id)
+            const {doctorId} = req.params
+            const response = await Doctor.findByPk(+doctorId)
+
+            if(!response) throw {name: 'NotFound', message: 'Doctor not found'}
+
             res.status(200).json(response)
         } catch (error) {
             console.log(error);
