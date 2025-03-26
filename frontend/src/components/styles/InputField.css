@@ -1,0 +1,35 @@
+.input-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .input-field:focus {
+    border-color: #2d8cf0;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(45, 140, 240, 0.2);
+  }
+  
+  .input-field::placeholder {
+    color: #aaa;
+  }
+  
+  .input-error {
+    color: #f5222d;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
