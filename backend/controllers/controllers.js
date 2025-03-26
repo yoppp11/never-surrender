@@ -1,6 +1,6 @@
 const { GoogleGenAI } = require("@google/genai");
 const {Doctor, Appointment} = require("../models");
-const { initializeApp } = require('firebase/app');
+// const { initializeApp } = require('firebase/app');
 const { collection, getDocs, getFirestore } = require('firebase/firestore/lite');
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY

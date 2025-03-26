@@ -6,3 +6,16 @@ const port = process.env.PORT || 3000
 app.listen(port, ()=> {
     console.log(`lari bg ada meteor ${port}`);
 })
+
+module.exports = {
+        apps : [{
+          name   : "yop-server",
+          script : "./bin/www",
+          env: {
+            "NODE_ENV": "production",
+            "PORT": 80,
+            "JWT_SECRET":"yopiganteng",
+            "DATABASE_URL":"postgresql://postgres.wnumrspokopwmvvkxmfc:MNIaU3Hra5OgWaZ8@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres"
+          }
+        }]
+}
