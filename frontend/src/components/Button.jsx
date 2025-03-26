@@ -1,8 +1,9 @@
 import './styles/Button.css'
 
-export default function Button({ children, onClick, disabled, type = 'button' }){
+export default function Button({ children, onClick, disabled, type = 'button', id}){
     return (
         <button 
+            id={id}
             className={`button ${disabled ? 'button-disabled' : ''}`}
             onClick={onClick}
             disabled={disabled}
@@ -11,4 +12,4 @@ export default function Button({ children, onClick, disabled, type = 'button' })
             {children}
         </button>
     )
-}
+}   

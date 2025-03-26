@@ -97,3 +97,296 @@ body, html {
     min-width: 100%;
   }
 }
+
+.doctor-detail-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.doctor-detail-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.loading, .error-message, .not-found {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.doctor-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-image img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+}
+
+.doctor-info {
+  text-align: center;
+}
+
+.doctor-name {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.75rem;
+}
+
+.doctor-specialization {
+  margin: 0 0 1.5rem 0;
+  color: #2d8cf0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.doctor-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meta-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.meta-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.consultation-button {
+  padding: 0.75rem 2rem;
+  background-color: #2d8cf0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.consultation-button:hover {
+  background-color: #1a7ad9;
+}
+
+.doctor-details {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.section-content {
+  color: #444;
+  line-height: 1.6;
+}
+
+.education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.education-item {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.education-degree {
+  font-weight: 500;
+  color: #333;
+}
+
+.education-university {
+  color: #555;
+  font-style: italic;
+}
+
+.education-year {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.hospital-name {
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.hospital-address {
+  color: #555;
+  margin: 0;
+}
+
+.schedule-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.schedule-item {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-day {
+  font-weight: 500;
+  color: #333;
+}
+
+.schedule-time {
+  color: #555;
+}
+
+@media (min-width: 768px) {
+  .doctor-profile {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .doctor-image img {
+    margin: 0;
+  }
+
+  .doctor-info {
+    text-align: left;
+  }
+
+  .doctor-meta {
+    justify-content: flex-start;
+  }
+}
+
+.appointment-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.appointment-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.appointment-content h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.doctor-specialty {
+  color: #2d8cf0;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.appointment-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-error {
+  color: #f5222d;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #fff1f0;
+  border-radius: 6px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #2d8cf0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #1a7ad9;
+}
+
+.loading, .error-message {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}

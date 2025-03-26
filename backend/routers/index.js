@@ -7,6 +7,7 @@ const router = express.Router()
 
 router.post('/register', UserController.routeRegister)
 router.post('/login', UserController.routeLogin)
+router.post('/google', UserController.routeGoogleLogin)
 
 router.use(authMiddleware)
 

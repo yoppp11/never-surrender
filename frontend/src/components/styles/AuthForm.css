@@ -55,3 +55,7 @@
   .auth-switch-text a:hover {
     text-decoration: underline;
   }
+
+  #google-btn {
+    width: 600;
+  }

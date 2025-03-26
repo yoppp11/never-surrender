@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 import Button from "./Button";
 import InputField from "./InputField";
 import './styles/AuthForm.css';
@@ -11,8 +13,40 @@ export default function AuthForm(props){
         handleSubmit,
         isLogin,
         isLoading,
-        switchAuthMode,
+        switchAuthMode
       } = props;
+
+      async function handleCredentialResponse(response){
+        console.log(response.credential);
+        try {
+            const response = await http({
+                method: 'POST',
+                url: '/google-login',
+                data: {
+                    googleToken: response.credential
+                }
+            })
+        } catch (error) {
+            console.log(error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error'
+            })
+        }
+      }
+
+    useEffect(()=> {
+        google.accounts.id.initialize({
+            client_id: "106969522313-er8dglrbm7is6o8k9lad92fgmnkakcsm.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("google-btn"),
+            { theme: "outline", size: "medium"}  // customization attributes
+          );
+          google.accounts.id.prompt()
+    }, [])
 
     return (
         <form className="auth-form" onSubmit={handleSubmit}>
@@ -70,13 +104,19 @@ export default function AuthForm(props){
                 {isLoading ? 'Memproses...' : isLogin ? 'Masuk' : 'Daftar'}
             </Button>
 
-            <div className="auth-divider">
-                <span>atau</span>
-            </div>
+            {isLogin && (
+                <>
+                    <div className="auth-divider">
+                        <span>atau</span>
+                    </div>
 
-            <Button className="button-google">
-                {isLogin ? 'Masuk dengan Google' : 'Daftar dengan Google'}
-            </Button>
+                    <Button className="button-google" id="google-btn">
+                        {'Masuk dengan Google'}
+                    </Button>
+                </>
+
+            )}
+
 
             <p className="auth-switch-text">
                 {isLogin ? 'Belum punya akun? ' : 'Sudah punya akun? '}

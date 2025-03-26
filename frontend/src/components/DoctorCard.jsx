@@ -20,7 +20,7 @@ export default function DoctorCard({doctor}){
                 <span className="doctor-fee">{nf.format(doctor.fee) || 'Rp 50.000'}</span>
                 </div>
                 {/* <p className="doctor-hospital">{doctor.hospital || 'Rumah Sakit Umum'}</p> */}
-                <Link to={`/${doctor.id}`} className="doctor-button">Lihat Detail</Link>
+                <Link to={`/doctors/${doctor.id}`} className="button doctor-button">Lihat Detail</Link>
             </div>
         </div>
     )

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
+import '../App.css'
 import Button from "../components/Button"
 import Navbar from "../components/Navbar"
 import http from "../helpers/http"
@@ -29,8 +30,11 @@ export default function DoctorDetail(){
 
                 })
                 setDoctor(response.data)
+                console.log(doctor.schedule["sabtu"])
             } catch (error) {
                 console.log(error);
+            } finally {
+                setIsLoading(false)
             }
         }
 
@@ -73,7 +77,7 @@ export default function DoctorDetail(){
                                 </div>
 
                                 <Button className="consultation-button" onClick={()=> {
-
+                                    navigate(`/appointments/${doctorId}`)
                                 }}>
                                     Mulai Konsultasi
                                 </Button>
@@ -91,21 +95,16 @@ export default function DoctorDetail(){
                             <div className="detail-section">
                                 <h2 className="section-title">Jadwal Praktik</h2>
                                 <div className="schedule-container">
-                                    {doctor.schedule?.length > 0 ? (
-                                        doctor.schedule.map((el, ind) => (
+                                    {
+                                        Object.keys(doctor.schedule).map((el, ind) => {
+                                            const time = doctor.schedule[el] + ' '
+                                            return (
                                             <div key={ind} className="schedule-item">
-                                                <span className="schedule-day">{Object.keys(el)}</span>
-                                                <span className="schedule-time">{Object.values(el)}</span>
+                                                <span className="schedule-day">{el}</span>
+                                                <span className="schedule-time">{time}</span>
                                             </div>
-                                        ))
-                                    ) : (
-                                        <>
-                                            <div className="schedule-item">
-                                                <span className="schedule-day">Senin - Jumat</span>
-                                                <span className="schedule-time">08:00 - 16:00</span>
-                                            </div>
-                                        </>
-                                    )
+                                            )
+                                        })
                                 }
                                 </div>
                             </div>

@@ -24,9 +24,11 @@ module.exports = {
         }
       },
       date: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       time: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       status: {
@@ -39,6 +41,7 @@ module.exports = {
         defaultValue: 'pending_payment'
       },
       symptoms: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       createdAt: {

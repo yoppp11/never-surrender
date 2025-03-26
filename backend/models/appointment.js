@@ -30,8 +30,28 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       }
     },
-    date: DataTypes.DATE,
-    time: DataTypes.STRING,
+    date: {
+      type: DataTypes.DATE,
+      validate: {
+        notEmpty: {
+          msg: 'Date cannot be empty'
+        },
+        notNull: {
+          msg: 'Date cannot be empty'
+        }
+      }
+    },
+    time: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Time cannot be empty'
+        },
+        notNull: {
+          msg: 'Time cannot be empty'
+        }
+      }
+    },
     status: {
       type: DataTypes.ENUM([
         'pending_payment',
@@ -41,7 +61,17 @@ module.exports = (sequelize, DataTypes) => {
       ]),
       defaultValue: 'pending_payment'
     },
-    symptoms: DataTypes.TEXT
+    symptoms: {
+      type: DataTypes.TEXT,
+      validate: {
+        notEmpty: {
+          msg: 'Symptoms cannot be empty'
+        },
+        notNull: {
+          msg: 'Symptoms cannot be empty'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'Appointment',
