@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     date: {
+      allowNull: false,
       type: DataTypes.DATE,
       validate: {
         notEmpty: {
@@ -42,6 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     time: {
+      allowNull: false,
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
@@ -62,6 +64,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'pending_payment'
     },
     symptoms: {
+      allowNull: false,
       type: DataTypes.TEXT,
       validate: {
         notEmpty: {
