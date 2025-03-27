@@ -1,11 +1,11 @@
 import dayjs from "dayjs"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
+import Swal from "sweetalert2"
 import Button from "../components/Button"
 import Navbar from "../components/Navbar"
 import http from "../helpers/http"
 import './styles/AppointmentsPage.css'
-import Swal from "sweetalert2"
 
 export default function AppointmentsPage() {
     const [appointments, setAppointments] = useState([])
@@ -137,7 +137,7 @@ export default function AppointmentsPage() {
                   <div className="detail-item">
                     <span className="detail-label">Status:</span>
                     <span className={`status ${el.status}`}>
-                      {el.status === 'pending_payment' ? 'Menunggu Pembayaran' : 'Selesai'}
+                      {el.status === 'pending_payment' ? 'Menunggu Pembayaran' : 'confirmed'}
                     </span>
                   </div>
                 

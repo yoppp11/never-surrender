@@ -66,10 +66,10 @@ class Controller {
             const {id} = req.user
 
             const response = await Appointment.findAll({
-                attributes: {exclude: ['createdAt', 'updatedAt', 'patientId', 'doctorId']},
+                attributes: {exclude: ['createdAt', 'updatedAt']},
                 include: {
                     model: Doctor,
-                    attributes: {exclude: ['id', 'schedule', 'fee', 'bio', 'createdAt', 'updatedAt']}
+                    attributes: {exclude: ['createdAt', 'updatedAt']}
                 },
                 where: {
                     patientId: id
