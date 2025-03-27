@@ -16,6 +16,14 @@ async function authMiddleware(req, res, next){
         if(!isValidToken) throw {name: 'Unauthorized', message: 'Invalid token'}
         console.log(isValidToken);
 
+        if(isValidToken.role === 'dokter'){
+            req.user = {
+                id: isValidToken.id
+            }
+            next()
+            return 
+        }
+
         const userData = await User.findByPk(isValidToken.id)
         if(!userData) throw {name: 'Unauthorized', message: 'Invalid token'}
 

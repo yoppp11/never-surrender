@@ -22,6 +22,7 @@ export default function AppointmentsPage() {
                     return
                 }
 
+                console.log(token);
 
                 const response = await http({
                   method: 'GET',

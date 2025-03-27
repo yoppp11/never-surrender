@@ -8,6 +8,7 @@ import DoctorDetail from './pages/DoctorDetail.jsx'
 import HomePage from './pages/HomePage.jsx'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
+import { Provider as ReduxProvider } from 'react-redux'
 
 function PrivateRoute({children}){
   const token = localStorage.getItem('access_token')
@@ -15,17 +16,19 @@ function PrivateRoute({children}){
 }
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/register' element={<Register/>}/>
-      <Route path='/' element={<HomePage/>}/>
-      <Route path='/appointments' element={<AppointmentsPage/>}/>
-      <Route path='/doctors/:doctorId' element={<DoctorDetail/>}/>
-      <Route path='/appointments/:doctorId' element={<CreateAppointment/>}/>
-      <Route path='/chats/:appointmentId' element={<ChatRoom/>}/>
-    </Routes>
-  </BrowserRouter>
+  // <ReduxProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/appointments' element={<AppointmentsPage/>}/>
+        <Route path='/doctors/:doctorId' element={<DoctorDetail/>}/>
+        <Route path='/appointments/:doctorId' element={<CreateAppointment/>}/>
+        <Route path='/chats/:appointmentId' element={<ChatRoom/>}/>
+      </Routes>
+    </BrowserRouter>
+  // </ReduxProvider>
 
   // <StrictMode>
   //   <App />

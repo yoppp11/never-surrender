@@ -68,7 +68,7 @@ class UserController {
             if(!response) throw {name: 'NotFound', message: 'Doctor not found'}
 
             console.log(response);
-            const token = generateToken({id: response.id})
+            const token = generateToken({id: response.id, role: 'dokter'})
 
 
             res.status(200).json({access_token: token})
