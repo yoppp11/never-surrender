@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://yofi.yop-gans.web.id'
 })
 
 export default http;

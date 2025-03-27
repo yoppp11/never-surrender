@@ -39,7 +39,7 @@ export default function AppointmentsPage() {
         }
 
         fetchAppointments()
-    }, [navigate])
+    }, [navigate, appointments])
 
     async function handlePayment(appointmentId){
         try {
@@ -191,6 +191,34 @@ export default function AppointmentsPage() {
                     Chat dengan Dokter
                   </button>
                 )}
+                  <button 
+                    onClick={async(e) => {
+                        try {
+                            await http({
+                                method: 'DELETE',
+                                url: `/appointments/${el.id}`,
+                                headers: {
+                                    Authorization: `Bearer ${localStorage.getItem('access_token')}`
+                                }
+                                
+                            })
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil hapus',
+                            })
+                        } catch (error) {
+                            console.log(error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal hapus',
+                                text: 'Gagal menghapus', 
+                            })
+                        }
+                    }}
+                    className="delete-button"
+                  >
+                    Hapus
+                  </button>
                 </div>
             ))}
           </div>

@@ -2,6 +2,7 @@ const { GoogleGenAI } = require("@google/genai");
 const {Doctor, Appointment} = require("../models");
 // const { initializeApp } = require('firebase/app');
 const { collection, getDocs, getFirestore } = require('firebase/firestore/lite');
+const { comparePassword } = require("../helpers/bcrypt");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 
@@ -87,6 +88,9 @@ class Controller {
     static async routeGetAppointmentAdmin(req, res, next){
         try {
             const {id} = req.user
+
+            // const tok = comparePassword('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzQzMDU2OTM5fQ.XPy0TRiGs2yWVQdLmFLikQj6h8UVH6R4gnvqQR3l_7w')
+            // console.log(tok, '====');
 
             const response = await Appointment.findAll({
                 attributes: {exclude: ['createdAt', 'updatedAt']},

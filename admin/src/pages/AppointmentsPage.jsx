@@ -24,11 +24,11 @@ export default function AppointmentsPage() {
 
 
                 const response = await http({
-                    method: 'GET',
-                    url: '/appointmentsAdmin',
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                  method: 'GET',
+                  url: '/appointmentsAdmin',
+                  headers: {
+                    Authorization: `Bearer ${token}`
+                  }
                 })
 
                 console.log(response);

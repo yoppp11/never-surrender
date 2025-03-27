@@ -132,6 +132,38 @@
   .payment-button:hover {
     background-color: #3fad09;
   }
+  .chat-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .chat-button:hover {
+    background-color: rgb(234, 184, 90);
+  }
+  .delete-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: rgb(248, 86, 86);
+  }
   
   .loading, .error-message {
     text-align: center;
