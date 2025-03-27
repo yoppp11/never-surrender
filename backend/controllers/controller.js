@@ -83,6 +83,25 @@ class Controller {
             next(error)
         }
     }
+    
+    static async routeGetAppointmentById(req, res, next){
+        try {
+            const {appointmentId} = req.params
+            
+            const response = await Appointment.findByPk(+appointmentId, {
+                attributes: {exclude: ['createdAt', 'updatedAt']},
+                include: {
+                    model: Doctor,
+                    attributes: {exclude: ['createdAt', 'updatedAt']}
+                }
+            })
+            
+            res.status(200).json(response)
+        } catch (error) {
+            console.log(error);
+            next(error)
+        }
+    }
 
     
     static async routeDeleteAppoint(req, res, next){

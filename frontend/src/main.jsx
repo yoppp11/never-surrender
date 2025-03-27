@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
+import ChatRoom from './components/ChatRoom.jsx'
 import './index.css'
 import AppointmentsPage from './pages/AppointmentsPage.jsx'
 import CreateAppointment from './pages/CreateAppointment.jsx'
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/appointments' element={<AppointmentsPage/>}/>
       <Route path='/doctors/:doctorId' element={<DoctorDetail/>}/>
       <Route path='/appointments/:doctorId' element={<CreateAppointment/>}/>
+      <Route path='/chats/:appointmentId' element={<ChatRoom/>}/>
     </Routes>
   </BrowserRouter>
 

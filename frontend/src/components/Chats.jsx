@@ -9,8 +9,22 @@ import {
     updateDoc
 } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { db } from '../../firebase';
 import './styles/Chats.css';
+
+import { initializeApp } from 'firebase/app';
+import { getDocs, getFirestore } from 'firebase/firestore/lite';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBLBL6IXuCyCVyTyuefo5RXh_9djVdpHJ4",
+    authDomain: "nvr-srndr.firebaseapp.com",
+    projectId: "nvr-srndr",
+    storageBucket: "nvr-srndr.firebasestorage.app",
+    messagingSenderId: "473745279322",
+    appId: "1:473745279322:web:29870c34be6942eb25cb63"
+}
+
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
 
 export default function Chats({ appointmentId, patientId, doctorId }){
     const [messages, setMessages] = useState([]);

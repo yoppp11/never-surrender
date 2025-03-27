@@ -183,6 +183,14 @@ export default function AppointmentsPage() {
                     Bayar Sekarang
                   </Button>
                 )}
+                {el.status === 'confirmed' && (
+                  <button 
+                    onClick={() => navigate(`/chats/${el.id}`)}
+                    className="chat-button"
+                  >
+                    Chat dengan Dokter
+                  </button>
+                )}
                 </div>
             ))}
           </div>

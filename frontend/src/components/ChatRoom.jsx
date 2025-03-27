@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import http from "../helpers/http";
 import Chats from "./Chats";
 import Navbar from "./Navbar";
@@ -37,7 +37,7 @@ export default function ChatRoom(){
         };
 
         fetchAppointment();
-    }, [bookingId, navigate]);
+    }, [appointmentId, navigate]);
 
     if (loading) {
         return (
