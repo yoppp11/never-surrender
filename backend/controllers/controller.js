@@ -124,7 +124,7 @@ class Controller {
         try {
             const {appointmentId} = req.params
             const response = await Appointment.update({
-                symptoms: 'confirmed'
+                status: 'confirmed'
             }, {
                 where: {
                     id: +appointmentId

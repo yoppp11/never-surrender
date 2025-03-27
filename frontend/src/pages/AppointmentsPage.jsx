@@ -5,6 +5,7 @@ import Button from "../components/Button"
 import Navbar from "../components/Navbar"
 import http from "../helpers/http"
 import './styles/AppointmentsPage.css'
+import Swal from "sweetalert2"
 
 export default function AppointmentsPage() {
     const [appointments, setAppointments] = useState([])
@@ -111,7 +112,7 @@ export default function AppointmentsPage() {
         ) : (
           <div className="appointments-list">
             {appointments.map(el => (
-              <div key={`${el.Doctor.name}-${el.date}-${el.time}`} className="appointment-card">
+              <div key={el.id} className="appointment-card">
                 <div className="appointment-header">
                   <h3 className="doctor-name">{el.Doctor.name}</h3>
                   <span className="specialization">{el.Doctor.specialization}</span>
@@ -154,7 +155,7 @@ export default function AppointmentsPage() {
                             console.log('klik1');
                             console.log(el.id);
                             
-                            await http({
+                            const response = await http({
                                 method: 'PATCH',
                                 url: `/appointments/${el.id}`,
                                 headers: {
@@ -165,6 +166,11 @@ export default function AppointmentsPage() {
                 
                             console.log(response)
                             setAppointments(prev => prev.filter(app => app.id !== el.id))
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Pembayaran Berhasil',
+                                text: 'Pembayaran Anda Berhasil',
+                              })
                             // navigate('/appointments')
                         } catch (error) {
                             setError('Gagal melakukan pembayaran');
