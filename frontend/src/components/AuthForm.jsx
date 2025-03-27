@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import http from "../helpers/http";
 import Button from "./Button";
 import InputField from "./InputField";
 import './styles/AuthForm.css';
@@ -16,16 +17,32 @@ export default function AuthForm(props){
         switchAuthMode
       } = props;
 
+      const navigate = useNavigate();
+
       async function handleCredentialResponse(response){
         console.log(response.credential);
         try {
-            const response = await http({
+            const result = await http({
                 method: 'POST',
-                url: '/google-login',
+                url: '/google',
                 data: {
                     googleToken: response.credential
                 }
             })
+
+            Swal.fire({
+                // position: "top-end",
+                icon: "success",
+                title: "Login successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+
+            console.log(result);
+
+            localStorage.setItem('access_token', result.data.access_token)
+
+            navigate('/')
         } catch (error) {
             console.log(error);
             Swal.fire({
