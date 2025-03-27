@@ -1,0 +1,18 @@
+[
+    {
+        "email": "user1@gmail.com",
+        "password": "$2b$10$Nt1XCjjUWU7An1sjXcTR9uylbiYVxy7tpCaLrSVMqXCkeiiJMI2Iu",
+        "role": "user"
+    },
+    {
+        "email": "user2@gmail.com",
+        "password": "$2b$10$HJdzuGUJPYvYquZ9.HfYXe.cULY8TRQfHp86oe0usXNi/k6D5DAB6",
+        "role": "user"
+    },
+    {
+        "email": "dokter1@gmail.com",
+        "password": "$2b$10$7QnF.2KJH0r3WTKUxldO6.4fIedeEGIm/iJBR//r9KpgDJrAXMsdu",
+        "role": "dokter"
+    }
+
+]

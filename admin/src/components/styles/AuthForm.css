@@ -1,0 +1,61 @@
+.auth-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .forgot-password-link {
+    text-align: right;
+    margin-bottom: 1.5rem;
+  }
+  
+  .forgot-password-link a {
+    color: #2d8cf0;
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+  
+  .forgot-password-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: #666;
+  }
+  
+  .auth-divider::before,
+  .auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .auth-divider::before {
+    margin-right: 1rem;
+  }
+  
+  .auth-divider::after {
+    margin-left: 1rem;
+  }
+  
+  .auth-switch-text {
+    text-align: start;
+    margin-top: 1.5rem;
+    color: #666;
+  }
+  
+  .auth-switch-text a {
+    color: #2d8cf0;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .auth-switch-text a:hover {
+    text-decoration: underline;
+  }
+
+  #google-btn {
+    width: 600;
+  }

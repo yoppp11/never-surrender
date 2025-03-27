@@ -1,7 +1,7 @@
 const { OAuth2Client } = require("google-auth-library");
 const { comparePassword } = require("../helpers/bcrypt");
 const { generateToken } = require("../helpers/jwt");
-const {User} = require("../models");
+const {User, Doctor} = require("../models");
 
 const client = new OAuth2Client();
 const CLIENT_ID = process.env.CLIENT_ID
@@ -52,6 +52,31 @@ class UserController {
         } catch (error) {
             console.log(error);
             next(error)
+        }
+    }
+
+    static async routeAdmin(req, res, next){
+        try {
+            const {name} = req.body
+
+            const response = await Doctor.findOne({
+                where: {
+                    name
+                }
+            })
+
+            if(!response) throw {name: 'NotFound', message: 'Doctor not found'}
+
+            console.log(response);
+            const token = generateToken({id: response.id})
+
+
+            res.status(200).json({access_token: token})
+
+        } catch (error) {
+            console.log(error);
+            next(error)
+            
         }
     }
 

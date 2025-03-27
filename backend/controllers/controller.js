@@ -83,6 +83,29 @@ class Controller {
             next(error)
         }
     }
+
+    static async routeGetAppointmentAdmin(req, res, next){
+        try {
+            const {id} = req.user
+
+            const response = await Appointment.findAll({
+                attributes: {exclude: ['createdAt', 'updatedAt']},
+                include: {
+                    model: Doctor,
+                    attributes: {exclude: ['createdAt', 'updatedAt']}
+                },
+                where: {
+                    doctorId: id
+                },
+                // raw: true
+            })
+
+            res.status(200).json(response)
+        } catch (error) {
+            console.log(error);
+            next(error)
+        }
+    }
     
     static async routeGetAppointmentById(req, res, next){
         try {

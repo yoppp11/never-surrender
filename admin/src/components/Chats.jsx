@@ -13,17 +13,17 @@ import './styles/Chats.css';
 
 import { initializeApp } from 'firebase/app';
 import {
-    addDoc,
-    collection,
-    doc,
-    getDocs,
-    getFirestore,
-    onSnapshot,
-    orderBy,
-    query,
-    serverTimestamp,
-    updateDoc,
-    where
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  getFirestore,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+  updateDoc,
+  where
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -141,7 +141,7 @@ export default function Chats({ appointmentId, patientId, doctorId }){
           
     
           await addDoc(messagesRef, {
-            senderId: patientId,
+            senderId: doctorId,
             text: newMessage,
             timestamp: serverTimestamp(),
             read: false
@@ -178,7 +178,7 @@ export default function Chats({ appointmentId, patientId, doctorId }){
         {messages.map((message) => (
           <div 
             key={message.id}
-            className={`message ${message.senderId === patientId ? 'sent' : 'received'}`}
+            className={`message ${message.senderId === doctorId ? 'sent' : 'received'}`}
           >
             <div className="message-content">
               <p>{message.text}</p>

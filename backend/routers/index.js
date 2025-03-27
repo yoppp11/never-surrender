@@ -8,11 +8,13 @@ const router = express.Router()
 router.post('/register', UserController.routeRegister)
 router.post('/login', UserController.routeLogin)
 router.post('/google', UserController.routeGoogleLogin)
+router.post('/admin', UserController.routeAdmin)
 
 router.use(authMiddleware)
 
 router.get('/doctors', Controller.routeGetAll)
 router.get('/appointments', Controller.routeGetAppointment)
+router.get('/appointmentsAdmin', Controller.routeGetAppointmentAdmin)
 router.get('/doctors/firebase', Controller.routeGetFromFirebase)
 router.get('/ai/reccomendations', Controller.routeGetHealthCare)
 router.get('/doctors/:doctorId', Controller.routeGetId)

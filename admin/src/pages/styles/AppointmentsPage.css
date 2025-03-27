@@ -1,0 +1,151 @@
+.appointments-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+  }
+  
+  .appointments-content {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    width: 100%;
+  }
+  
+  .appointments-content h1 {
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .empty-appointments {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .empty-appointments p {
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .find-doctor-button {
+    padding: 0.75rem 2rem;
+    background-color: #2d8cf0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .find-doctor-button:hover {
+    background-color: #1a7ad9;
+  }
+  
+  .appointments-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .appointment-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s;
+  }
+  
+  .appointment-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .appointment-header {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .doctor-name {
+    margin: 0 0 0.25rem 0;
+    color: #333;
+  }
+  
+  .specialization {
+    color: #2d8cf0;
+    font-size: 0.9rem;
+  }
+  
+  .appointment-details {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .detail-item {
+    display: flex;
+  }
+  
+  .detail-label {
+    font-weight: 500;
+    color: #555;
+    min-width: 100px;
+  }
+  
+  .detail-value {
+    color: #333;
+  }
+  
+  .status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .status.pending_payment {
+    background-color: white;
+    color: #fa8c16;
+  }
+  
+  .status.confirmed {
+    background-color: white;
+    color: #52c41a;
+  }
+  
+  .payment-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #52c41a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .payment-button:hover {
+    background-color: #3fad09;
+  }
+  
+  .loading, .error-message {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    .detail-item {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .detail-label {
+      min-width: auto;
+    }
+  }
