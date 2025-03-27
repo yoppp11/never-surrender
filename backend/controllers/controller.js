@@ -73,7 +73,8 @@ class Controller {
                 },
                 where: {
                     patientId: id
-                }
+                },
+                // raw: true
             })
 
             res.status(200).json(response)
@@ -107,11 +108,11 @@ class Controller {
             const {appointmentId} = req.params
             const response = await Appointment.update(req.body, {
                 where: {
-                    id: appointmentId
+                    id: +appointmentId
                 }
             })
 
-            res.status(200).json({message: `Appointment with id ${id} has been updated`})
+            res.status(200).json({message: `Appointment with id ${appointmentId} has been updated`})
 
         } catch (error) {
             console.log(error);
@@ -123,12 +124,15 @@ class Controller {
         try {
             const {appointmentId} = req.params
             const response = await Appointment.update({
-                status: 'confirmed'
+                symptoms: 'confirmed'
             }, {
                 where: {
-                    id: appointmentId
+                    id: +appointmentId
                 }
             })
+
+            console.log(typeof appointmentId);
+            console.log(response);
 
             res.status(200).json({message: `status has been updated`})
 

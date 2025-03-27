@@ -1,6 +1,7 @@
 import dayjs from "dayjs"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
+import Button from "../components/Button"
 import Navbar from "../components/Navbar"
 import http from "../helpers/http"
 import './styles/AppointmentsPage.css'
@@ -47,17 +48,22 @@ export default function AppointmentsPage() {
                 return
             }
 
-            const response = await http({
+            console.log('klik1');
+            
+            await http({
                 method: 'PATCH',
-                url: `/appointments/${appointmentId}/`,
+                url: `/appointments/${appointmentId}`,
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             })
+            console.log('klik2');
 
             console.log(response)
             setAppointments(prev => prev.filter(app => app.id !== appointmentId))
+            // navigate('/appointments')
         } catch (error) {
+            setError('Gagal melakukan pembayaran');
             console.log(error)
         }
     }
@@ -71,6 +77,15 @@ export default function AppointmentsPage() {
           <div className="appointments-container">
             <Navbar />
             <div className="loading">Memuat daftar appointment...</div>
+          </div>
+        );
+      }
+
+      if (error) {
+        return (
+          <div className="appointments-container">
+            <Navbar />
+            <div className="error-message">{error}</div>
           </div>
         );
       }
@@ -95,46 +110,74 @@ export default function AppointmentsPage() {
           </div>
         ) : (
           <div className="appointments-list">
-            {appointments.map(appointment => (
-              <div key={appointment.id} className="appointment-card">
+            {appointments.map(el => (
+              <div key={`${el.Doctor.name}-${el.date}-${el.time}`} className="appointment-card">
                 <div className="appointment-header">
-                  <h3 className="doctor-name">{appointment.Doctor.name}</h3>
-                  <span className="specialization">{appointment.Doctor.specialization}</span>
+                  <h3 className="doctor-name">{el.Doctor.name}</h3>
+                  <span className="specialization">{el.Doctor.specialization}</span>
                 </div>
                 
                 <div className="appointment-details">
                   <div className="detail-item">
                     <span className="detail-label">Tanggal:</span>
-                    <span className="detail-value">{formatDate(appointment.date)}</span>
+                    <span className="detail-value">{formatDate(el.date)}</span>
                   </div>
                   
                   <div className="detail-item">
                     <span className="detail-label">Waktu:</span>
-                    <span className="detail-value">{appointment.time}</span>
+                    <span className="detail-value">{el.time}</span>
                   </div>
                   
                   <div className="detail-item">
                     <span className="detail-label">Keluhan:</span>
-                    <span className="detail-value">{appointment.symptoms}</span>
+                    <span className="detail-value">{el.symptoms}</span>
                   </div>
                   
                   <div className="detail-item">
                     <span className="detail-label">Status:</span>
-                    <span className={`status ${appointment.status}`}>
-                      {appointment.status === 'pending_payment' ? 'Menunggu Pembayaran' : 'Selesai'}
+                    <span className={`status ${el.status}`}>
+                      {el.status === 'pending_payment' ? 'Menunggu Pembayaran' : 'Selesai'}
                     </span>
                   </div>
                 
                 </div>
-                {appointment.status === 'pending_payment' && (
-                  <button 
-                    onClick={() => handlePayment(appointment.id)}
+                {el.status === 'pending_payment' && (
+                  <Button
+                    onClick={async (e) => {
+                        try {
+                            const token = localStorage.getItem('access_token')
+                            if (!token) {
+                                navigate('/login')
+                                return
+                            }
+                
+                            console.log('klik1');
+                            console.log(el.id);
+                            
+                            await http({
+                                method: 'PATCH',
+                                url: `/appointments/${el.id}`,
+                                headers: {
+                                    Authorization: `Bearer ${token}`
+                                }
+                            })
+                            console.log('klik2');
+                
+                            console.log(response)
+                            setAppointments(prev => prev.filter(app => app.id !== el.id))
+                            // navigate('/appointments')
+                        } catch (error) {
+                            setError('Gagal melakukan pembayaran');
+                            console.log(error)
+                        }
+                    }
+                    }
                     className="payment-button"
                   >
                     Bayar Sekarang
-                  </button>
+                  </Button>
                 )}
-              </div>
+                </div>
             ))}
           </div>
         )}

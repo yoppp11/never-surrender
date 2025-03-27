@@ -107,12 +107,12 @@
   }
   
   .status.pending_payment {
-    background-color: #2d8cf0;
+    background-color: white;
     color: #fa8c16;
   }
   
   .status.completed {
-    background-color: #2d8cf0;
+    background-color: white;
     color: #52c41a;
   }
   
